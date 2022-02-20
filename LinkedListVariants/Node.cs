@@ -1,41 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace LinkedListVariants
+namespace LinkedListVariants;
+
+public class Node
 {
-    public class Node
+    public Node NextNode { get; set; }
+
+    public int Data { get; set; }
+
+    public Node(int Data)
     {
-        public Node NextNode { get; set; }
+        this.Data = Data;
+        this.NextNode = null;
+    }
 
-        public int Data { get; set; }
+    public void Print()
+    {
+        Console.Write("|" + this.Data + "|-> ");
 
-        public Node(int Data)
+        if (this.NextNode != null)
         {
-            this.Data = Data;
-            this.NextNode = null;
+            NextNode.Print();
         }
+    }
 
-        public void Print()
+    public void AddToEnd(int Data)
+    {
+        if (NextNode == null)
         {
-            Console.Write("|" + this.Data + "|-> ");
-
-            if (this.NextNode != null)
-            {
-                NextNode.Print();
-            }
+            NextNode = new Node(Data);
         }
-
-        public void AddToEnd(int Data)
+        else
         {
-            if(NextNode == null)
-            {
-                NextNode = new Node(Data);
-            }
-            else
-            {
-                NextNode.AddToEnd(Data);
-            }
+            NextNode.AddToEnd(Data);
         }
     }
 }
