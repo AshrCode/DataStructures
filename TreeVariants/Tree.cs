@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace TreeVariants;
 
-namespace TreeVariants
+public class Tree<T>
 {
-    public class Tree<T>
-    {
-        public TreeNode<T> Root { get; set; }
-    }
+    public TreeNode<T> Root { get; set; }
 }
